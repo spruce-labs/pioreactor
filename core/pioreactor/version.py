@@ -5,7 +5,11 @@ import os
 # Append ".dev0" if a dev version
 # Append "rc0" if a rc version
 # No zero padding!
-__version__ = "26.7.2"
+# NOTE (spruce-labs downstream): "+sl.N" is a PEP440 local-version marker identifying a
+# spruce-labs build of the corresponding upstream release (here 26.7.2) carrying the offline
+# fixes (ISSUE-01/02/05). It sorts above the plain upstream version so it never reads as
+# "update available". Reset to the plain upstream string when rebasing onto a new upstream.
+__version__ = "26.7.2+sl.1"
 
 
 def get_hardware_version() -> tuple[int, int] | tuple[int, int, str] | None:
